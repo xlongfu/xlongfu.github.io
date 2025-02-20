@@ -1,0 +1,47 @@
+---
+title: "index"
+author: "Xuelong Fu"
+date: "`r Sys.Date()`"
+output: 
+  flexdashboard::flex_dashboard:
+    storyboard: true
+    theme: plotly
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(readr)
+library(ggplot2)
+library(dplyr)
+library(lubridate)
+```
+
+```{r load_data, include = FALSE}
+trips_df <- read_csv('https://assets.datacamp.com/production/course_5875/datasets/sanfran_bikeshare_joined_oneday.csv')
+```
+
+Column
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+
+```
+
+Column
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+
+```
+
+### Chart C
+
+```{r}
+
+```
+
+
