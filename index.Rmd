@@ -1,11 +1,19 @@
 ---
-title: "index"
+title: "Computational Musicology Portfolio 2025"
 author: "Xuelong Fu"
-date: "`r Sys.Date()`"
 output: 
   flexdashboard::flex_dashboard:
     storyboard: true
-    theme: plotly
+    theme:
+      version: 4
+      bg: "#c0fcf8"
+      fg: "#005b5c" 
+      primary: "#47817d"
+      navbar-bg: "#3ADAC6"
+      base_font: 
+        google: Shippori Mincho
+      heading_font:
+        google: Shippori Mincho
 ---
 
 ```{r setup, include=FALSE}
@@ -14,34 +22,114 @@ library(readr)
 library(ggplot2)
 library(dplyr)
 library(lubridate)
+library(ggrepel)
+library(sysfonts)
+library(showtext)
+
+font_add_google("Shippori Mincho", "Shippori Mincho")
+showtext_auto()
 ```
 
 ```{r load_data, include = FALSE}
-trips_df <- read_csv('https://assets.datacamp.com/production/course_5875/datasets/sanfran_bikeshare_joined_oneday.csv')
+df <- read_csv('../data/compmus2025.csv')
 ```
 
-Column
+Welcome
+=====================================
+
+For this homework, I used my two tracks I submitted previously. Here are the descriptions:
+
+#### Track xuelong-f-1
+
+This track is a remix/arrangement by me of a videogame OST song. The original is the "Stage 5" theme called "Faraway Voyage of 380,000 Kilometers" (https://youtu.be/a8Wdta9YFYk?si=mZuIxx1y-nJusEIQ) in the game "Touhou 15, Legacy of Lunatic Kingdom". It is composed by ZUN and has lenient copyright requirements (especially if it is not commercialized). For my remix, I used elements of the original composition and made a Drum-n-Bass track of it.
+
+#### Track xuelong-f-2
+
+This track is a remix/arrangement by me of an OST song of the same game franchise. The original is the "Stage 1 Boss" theme called "Kitten of Great Fortune" (https://youtu.be/yeleqYd0t5o?si=KWyjivretXP-fEP3) in the game "Touhou 18, Unconnected Marketeers". It is, again, composed by ZUN and has lenient copyright requirements. For my remix, I used elements of the original composition and made a Electro Swing track of it.
+
+One of my goals (perhaps) for the portfolio is to compare musical elements, like timbre and richness of sound, between my remixes and the original tracks.
+
+TEMP Homework Week 8
+=====================================
+
+K-Means Clustering
 -----------------------------------------------------------------------
 
-### Chart A
+### K-Means Clustering
 
 ```{r}
+features <- df %>% 
+  select(-filename)
 
+features_scaled <- scale(features)
+
+set.seed(42)
+kmeans_result <- kmeans(features_scaled, centers = 3)
+
+df <- df %>%
+  mutate(cluster = as.factor(kmeans_result$cluster))
+
+pca <- prcomp(features_scaled, center = TRUE, scale. = FALSE)
+pca_data <- data.frame(PC1 = pca$x[, 1],
+                       PC2 = pca$x[, 2],
+                       filename = df$filename,
+                       cluster = df$cluster)
+
+custom_theme <- theme_minimal(base_family = "Shippori Mincho") +
+  theme(
+    plot.background = element_rect(fill = "#c0fcf8", color = NA),
+    panel.background = element_rect(fill = "#c0fcf8", color = NA),
+    text = element_text(color = "#005b5c"),
+    plot.title = element_text(family = "Shippori Mincho", size = 16, face = "bold", color = "#005b5c"),
+    axis.title = element_text(family = "Shippori Mincho", size = 12, color = "#005b5c"),
+    legend.background = element_rect(fill = "#3ADAC6", color = NA),
+    legend.key = element_rect(fill = "#101010", color = NA),
+    panel.grid.minor = element_blank()
+  )
+
+cluster_colors <- c("#47817d", "#3ADAC6", "#005b5c")
+
+cluster_plot_1 <- ggplot(pca_data, aes(x = PC1, y = PC2, color = cluster, label = filename)) +
+  geom_point(size = 1.5) +
+  geom_point(data = subset(pca_data, filename %in% c("xuelong-f-1", "xuelong-f-2")),
+             aes(x = PC1, y = PC2),
+             color = "#FF4136", size = 2.5) +
+  geom_text_repel(size = 3.3, family = "Shippori Mincho", max.overlaps = Inf) +
+  labs(title = "Clustering Analysis based on All Features",
+       x = "Principal Component 1",
+       y = "Principal Component 2",
+       color = "Cluster") +
+  scale_color_manual(values = cluster_colors) +
+  custom_theme
+
+print(cluster_plot_1)
 ```
 
-Column
+Description
 -----------------------------------------------------------------------
 
-### Chart B
-
-```{r}
-
-```
-
-### Chart C
-
-```{r}
-
-```
+Generally, my tracks are classified as more "energetic" compared to the class corpus. For instance, they score high on danceability, engagingness, and valence. Based on the clustering analysis, we observe that the Essentia features describe my own and other students' tracks quite reasonably. We note that my tracks are generally in the third cluster, where more of the energetic tracks reside, such as aleksandra-b-1 or mette-l-2. My tracks are positioned further away from tracks like jasper-v-1, which is a more relaxing jazz-like track, or lo-l-1, which is a more calm orchestral song. In this way, we notice that the features generally make sense, although some mistakes remain such as that Essentia provided wrong BPM tempos for my track. It detected the energetic nature of my tracks and how it relates and fits besides the other energetic tracks in the corpus. 
 
 
+Exploratory Analysis
+=====================================
+
+Here I aim to perform a general overview of the data
+
+Feature Analysis
+=====================================
+
+Here I aim to analyze features as generated by Essentia
+
+Deep Dive
+=====================================
+
+Here I aim to dive deeper into specific songs (probably the boss themes of Touhou Project)
+
+Comparisons
+=====================================
+
+Here I aim to perform comparisons, such as originals vs. my remixes of the originals
+
+Final Remarks
+=====================================
