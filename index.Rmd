@@ -41,11 +41,21 @@ For this homework, I used my two tracks I submitted previously. Here are the des
 
 #### Track xuelong-f-1
 
-This track is a remix/arrangement by me of a videogame OST song. The original is the "Stage 5" theme called "Faraway Voyage of 380,000 Kilometers" (https://youtu.be/a8Wdta9YFYk?si=mZuIxx1y-nJusEIQ) in the game "Touhou 15, Legacy of Lunatic Kingdom". It is composed by ZUN and has lenient copyright requirements (especially if it is not commercialized). For my remix, I used elements of the original composition and made a Drum-n-Bass track of it.
+This track is a remix/arrangement by me of a videogame OST song. The original is the "Stage 5" theme called "Faraway Voyage of 380,000 Kilometers" (https://youtu.be/a8Wdta9YFYk?si=mZuIxx1y-nJusEIQ) in the game "Touhou 15, Legacy of Lunatic Kingdom". It is composed by ZUN and has lenient copyright requirements (especially if it is not commercialized). For my remix, I used elements of the original composition and made a Drum-n-Bass track of it. Listen it here:
+
+<audio controls preload="none">
+  <source src="../data/xuelong-f-1.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
 
 #### Track xuelong-f-2
 
-This track is a remix/arrangement by me of an OST song of the same game franchise. The original is the "Stage 1 Boss" theme called "Kitten of Great Fortune" (https://youtu.be/yeleqYd0t5o?si=KWyjivretXP-fEP3) in the game "Touhou 18, Unconnected Marketeers". It is, again, composed by ZUN and has lenient copyright requirements. For my remix, I used elements of the original composition and made a Electro Swing track of it.
+This track is a remix/arrangement by me of an OST song of the same game franchise. The original is the "Stage 1 Boss" theme called "Kitten of Great Fortune" (https://youtu.be/yeleqYd0t5o?si=KWyjivretXP-fEP3) in the game "Touhou 18, Unconnected Marketeers". It is, again, composed by ZUN and has lenient copyright requirements. For my remix, I used elements of the original composition and made a Electro Swing track of it. Listen it here:
+
+<audio controls preload="none">
+  <source src="../data/xuelong-f-2.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
 
 One of my goals (perhaps) for the portfolio is to compare musical elements, like timbre and richness of sound, between my remixes and the original tracks.
 
