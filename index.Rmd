@@ -6,6 +6,7 @@ output:
     storyboard: true
     theme:
       version: 4
+      # #ffa2ff
       bg: "#c0fcf8"
       fg: "#005b5c" 
       primary: "#47817d"
@@ -25,6 +26,8 @@ library(lubridate)
 library(ggrepel)
 library(sysfonts)
 library(showtext)
+library(tidyverse)
+source("compmus.R")
 
 font_add_google("Shippori Mincho", "Shippori Mincho")
 showtext_auto()
@@ -34,8 +37,132 @@ showtext_auto()
 df <- read_csv('../data/compmus2025.csv')
 ```
 
+TEMP Homework Week 9
+=====================================
+
+Chromagram
+-----------------------------------------------------------------------
+
+### Track 1 - Chromagram
+
+```{r}
+"../data/features/xuelong-f-1.json" |>               
+  compmus_chroma(norm = "identity") |>                
+  ggplot(aes(x = time, y = pc, fill = value)) + 
+  geom_raster() +
+  scale_y_continuous(
+    breaks = 0:11,
+    minor_breaks = NULL,
+    labels = c(
+                "C", "C#|Db", "D", "D#|Eb",
+                "E", "F", "F#|Gb", "G",
+                "G#|Ab", "A", "A#|Bb", "B"
+              )
+  ) +
+  scale_fill_viridis_c(guide = "none") +            
+  labs(x = "Time (s)", y = NULL, fill = NULL) +
+  theme_classic() 
+```
+
+### Track 2 - Chromagram
+
+```{r}
+"../data/features/xuelong-f-2.json" |>                        
+  compmus_chroma(norm = "identity") |>              
+  ggplot(aes(x = time, y = pc, fill = value)) + 
+  geom_raster() +
+  scale_y_continuous(
+    breaks = 0:11,
+    minor_breaks = NULL,
+    labels = c(
+                "C", "C#|Db", "D", "D#|Eb",
+                "E", "F", "F#|Gb", "G",
+                "G#|Ab", "A", "A#|Bb", "B"
+              )
+  ) +
+  scale_fill_viridis_c(guide = "none") +              
+  labs(x = "Time (s)", y = NULL, fill = NULL) +
+  theme_classic() 
+```
+
+Ceptrogram
+-----------------------------------------------------------------------
+
+### Track 1 - Ceptrogram
+
+```{r}
+"../data/features/xuelong-f-1.json" |>                      
+  compmus_mfccs(norm = "identity") |>          
+  ggplot(aes(x = time, y = mfcc, fill = value)) + 
+  geom_raster() +
+  scale_y_continuous(
+    breaks = 0:12,
+    minor_breaks = NULL,
+  ) +
+  scale_fill_viridis_c(guide = "none") +            
+  labs(x = "Time (s)", y = "Coefficient Number", fill = NULL) +
+  theme_classic()   
+```
+
+### Track 2 - Ceptrogram
+
+```{r}
+"../data/features/xuelong-f-2.json" |>                        
+  compmus_mfccs(norm = "identity") |>               
+  ggplot(aes(x = time, y = mfcc, fill = value)) + 
+  geom_raster() +
+  scale_y_continuous(
+    breaks = 0:12,
+    minor_breaks = NULL,
+  ) +
+  scale_fill_viridis_c(guide = "none") +              
+  labs(x = "Time (s)", y = "Coefficient Number", fill = NULL) +
+  theme_classic() 
+```
+
+Timbre-based self-similarity
+-----------------------------------------------------------------------
+
+(Aesthetics and design elements for all the graphs will be done later). We notice that our tracks are reasonably clearly structured, with limited variation in certain sections. There are limited changes in timbral palettes, textures, and instrumentation. And as you listen to them, it indeed kind of makes sense. When I made these tracks, I indeed attempted to make them more structured (e.g. with clearly delineated song sections) and the shifts in instrumentation and timbre was indeed quite limited. As feedback for myself, this may make my tracks a bit stale over time. So it is great to gain insight in these kind of aspects, as they may help me in my future music production endeavors. 
+
+### Track 1 - Timbre-based self-similarity
+
+```{r}
+"../data/features/xuelong-f-1.json" |>                           # Change the track
+  compmus_mfccs(norm = "identity") |>                  # Change the norm
+  compmus_self_similarity(
+    feature = mfcc,
+    distance = "euclidean"                             # Change the distance
+  ) |>   
+  ggplot(aes(x = xtime, y = ytime, fill = d)) + 
+  geom_raster() +
+  scale_fill_viridis_c(guide = "none") +               # Change the colours?
+  labs(x = "Time (s)", y = NULL, fill = NULL) +
+  theme_classic() 
+```
+
+
+### Track 2 - Timbre-based self-similarity
+
+```{r}
+"../data/features/xuelong-f-2.json" |>                           # Change the track
+  compmus_mfccs(norm = "identity") |>                  # Change the norm
+  compmus_self_similarity(
+    feature = mfcc,
+    distance = "euclidean"                             # Change the distance
+  ) |>   
+  ggplot(aes(x = xtime, y = ytime, fill = d)) + 
+  geom_raster() +
+  scale_fill_viridis_c(guide = "none") +               # Change the colours?
+  labs(x = "Time (s)", y = NULL, fill = NULL) +
+  theme_classic() 
+```
+
 Welcome
 =====================================
+
+Description
+-----------------------------------------------------------------------
 
 For this homework, I used my two tracks I submitted previously. Here are the descriptions:
 
@@ -97,13 +224,13 @@ custom_theme <- theme_minimal(base_family = "Shippori Mincho") +
     panel.grid.minor = element_blank()
   )
 
-cluster_colors <- c("#47817d", "#3ADAC6", "#005b5c")
+cluster_colors <- c("#005b5c", "#6a417a", "#6b4b11")
 
 cluster_plot_1 <- ggplot(pca_data, aes(x = PC1, y = PC2, color = cluster, label = filename)) +
   geom_point(size = 1.5) +
   geom_point(data = subset(pca_data, filename %in% c("xuelong-f-1", "xuelong-f-2")),
              aes(x = PC1, y = PC2),
-             color = "#FF4136", size = 2.5) +
+             color = "#ff8748", size = 2.5) +
   geom_text_repel(size = 3.3, family = "Shippori Mincho", max.overlaps = Inf) +
   labs(title = "Clustering Analysis based on All Features",
        x = "Principal Component 1",
