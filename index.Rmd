@@ -37,6 +37,61 @@ showtext_auto()
 df <- read_csv('../data/compmus2025.csv')
 ```
 
+TEMP Homework Week 11
+=====================================
+
+Histogram
+-----------------------------------------------------------------------
+
+### Class Corpus Histogram
+
+```{r}
+ggplot(df, aes(x = tempo)) +
+  geom_histogram(binwidth = 5, fill = "#47817d", color = "white", alpha = 0.8) +
+  labs(title = "Tempo Distribution", x = "Tempo", y = "Frequency") +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    panel.background = element_rect(fill = "#c0fcf8", color = NA),
+    plot.background = element_rect(fill = "#c0fcf8", color = NA)
+  )
+```
+
+Tempograms 
+-----------------------------------------------------------------------
+
+We notice that the tempo curves are quite constant, where little surprising is 
+happening. In the first tempo curve, we do see some sort of interference at 80-90,
+just like in the self-similarity matrix. This shows that a section of different detected 
+tempo arrangement and timbre is happening there in my first track. This is probably due
+as indeed my track changes to something very different there, where dubstep sounds take
+over what is generally Drum n Bass in that section. 
+
+### Track 1
+
+```{r}
+"../data/features/xuelong-f-1.json" |>
+  compmus_tempogram(window_size = 8, hop_size = 1, cyclic = FALSE) |>
+  ggplot(aes(x = time, y = bpm, fill = power)) +
+  geom_raster() +
+  scale_fill_viridis_c(guide = "none") +
+  labs(x = "Time (s)", y = "Tempo (BPM)") +
+  theme_classic()
+```
+
+### Track 2
+
+```{r}
+"../data/features/xuelong-f-2.json" |>
+  compmus_tempogram(window_size = 8, hop_size = 1, cyclic = FALSE) |>
+  ggplot(aes(x = time, y = bpm, fill = power)) +
+  geom_raster() +
+  scale_fill_viridis_c(guide = "none") +
+  labs(x = "Time (s)", y = "Tempo (BPM)") +
+  theme_classic()
+```
+
+
 TEMP Homework Week 9
 =====================================
 
