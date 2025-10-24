@@ -16,52 +16,37 @@ hero:
 ########################### About ##################################
 about:
   enable: true
-  image: 'images/profile.jpg'
-  title: 'THIS IS ME'
+  # image: 'images/profile.jpg'
+  title: 'Tackle Real-World Problems with Data-Driven Solutions'
   content: Hi, thank you for taking a look around my site. If you have any questions feel free to reach out on [LinkedIn, Github, or by email](#contact)!
   button:
     enable: true
-    label: 'DOWNLOAD MY RESUME'
-    link: #
-    icon: 'fa-download'
+    label: 'Register now!'
+    link: 'https://www.google.com'
+    # icon: 'fa-download'
 
-###########################3 Experience ##############################
-experience:
+########################### Sponsors & Partners ##############################
+sponsors:
   enable: true
-  title: 'EXPERIENCE'
-  experience_list:
-    - name: Web Developer
-      company: Freelance
-      duration: '2020-Current'
-      content: I make websites.
+  title: 'SPONSORS & PARTNERS'
+  sponsors_list:
+    - name: 'University of Oxford'
+      logo: 'images/sponsors/oxford.png'
 
-    - name: Private Detective
-      company: Psych
-      duration: '2019-2020'
-      content: Okay. This is hard to explain but I’m going to give it a shot. You and I are opening our own private detective agency.
+    - name: 'University of Cambridge'
+      logo: 'images/sponsors/cambridge.png'
 
-    - name: Pharmaceutical Salesman
-      company: South Coast Pharmaceuticals
-      duration: '2012-2018'
-      content: We are not bounty hunters, Shawn. I am a pharmaceutical salesman. And Lassiter made it very clear! He said in no uncertain terms. These are certain terms, Shawn! Certain terms!
+    - name: 'Microsoft'
+      logo: 'images/sponsors/microsoft.png'
 
-############################### Skill #################################
-skill:
-  enable: true
-  title: 'SOME SKILLS'
-  showpercent: false
-  skill_list:
-    - name: 'React'
-      percentage: '85%'
+    - name: 'Google'
+      logo: 'images/sponsors/google.png'
 
-    - name: 'Detecting'
-      percentage: '93%'
+    - name: 'Amazon Web Services'
+      logo: 'images/sponsors/aws.png'
 
-    - name: 'Selling'
-      percentage: '25%'
-
-    - name: 'Yelling'
-      percentage: '100%'
+    - name: 'IBM'
+      logo: 'images/sponsors/ibm.png'
 
 ######################### funfacts #############################3
 funfacts:

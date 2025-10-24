@@ -1,14 +1,25 @@
-{{ define "main" }}
-  {{ partial "menu" . }}
+{{ define "main" }} {{- partial "menu.html" . -}}
 
-  <div class="under-menu col-lg-8 col-md-10 col-12 mx-auto post-container">
-    <h1>{{ .Title }}</h1>
-    <span class="date">Posted on: {{ .Date.Format "1/2/2006" }}</span>
-    <img src="{{ .Params.image }}" alt="{{ .Title }}" />
-    <div class="body">
-      {{ .Content }}
+<!-- =============================
+       Start Page Content
+    =============================== -->
+<section class="page-content" id="page-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="page-header">
+          <h1>{{ .Title }}</h1>
+        </div>
+        <div class="page-body">
+          {{ .Content }}
+        </div>
+      </div>
     </div>
   </div>
+</section>
+<!-- =============================
+      End Page Content
+    =============================== -->
 
-  {{ partial "footer" . }}
+{{- partial "footer.html" . -}}
 {{ end }}

@@ -140,7 +140,7 @@ body {
 }
 
 .logo img {
-  width: 205px;
+  width: 300px;
 }
 
 .owl-carousel.owl-full-width {
@@ -575,7 +575,7 @@ input:checked + label span:last-child {
 }
 
 .desktop-menu-logo img {
-  height: 50px;
+  height: 120px;
   margin-left: 20px;
 }
 
@@ -608,6 +608,7 @@ input:checked + label span:last-child {
 .desktop-menu .hvr-underline-from-left:before {
   bottom: 11px;
   height: 2.5px;
+  right: 100%;
 }
 
 .desktop-menu .hvr-underline-from-left.dark:before {
@@ -654,13 +655,14 @@ input:checked + label span:last-child {
 }
 
 .mobile-menu-logo img {
-  height: 50px;
+  height: 120px;
 }
 
 .mobile-menu-logo {
   position: absolute;
   left: 15px;
-  top: 4px;
+  top: 5px;
+  z-index: 1000;
 }
 
 .mobile-menu a {
@@ -790,6 +792,17 @@ input:checked + label span:last-child {
   font-size: 16px;
 }
 
+/* Full-width about section styles */
+.about-me-text {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.about-me-text .text-holder {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .download-cv:hover,
 .download-cv:focus {
   text-decoration: none;
@@ -802,6 +815,7 @@ input:checked + label span:last-child {
   margin-right: auto;
   margin-bottom: 20px;
   width: 90%;
+  max-width: 400px;
 }
 
 /* ========= Start Experience ======= */
@@ -1183,7 +1197,7 @@ ul.experience-chart h4 {
     left: 10px;
   }
   .header .logo img {
-    width: 185px;
+    width: 250px;
   }
 }
 
@@ -1298,6 +1312,13 @@ ul.experience-chart h4 {
   .desktop-menu-logo {
     display: none;
   }
+  .mobile-menu-logo {
+    top: 0px;
+    z-index: 1001;
+  }
+  .mobile-menu-logo img {
+    height: 100px;
+  }
   .menu-container-transparent {
     background: rgb(255, 255, 255);
   }
@@ -1329,6 +1350,7 @@ ul.experience-chart h4 {
     height: auto;
     margin-bottom: 30px;
     order: 2;
+    text-align: center;
   }
   .about-me-image {
     order: 1;
@@ -1337,6 +1359,10 @@ ul.experience-chart h4 {
   .about-me-holder {
     display: flex;
     flex-wrap: wrap;
+  }
+  .about-me-text .text-holder {
+    max-width: 100%;
+    padding: 0 15px;
   }
   .experience-skill {
     margin-top: 10px;
