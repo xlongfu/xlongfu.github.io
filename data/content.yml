@@ -11,7 +11,7 @@ hero:
   # hero background image
   bg_image: 'images/bg-cam.jpg'
   # optional mobile breakpoint background
-  mobile_bg_image: 'images/gus_small.jpg'
+  mobile_bg_image: 'images/bg-cam.jpg'
 
 ########################### About ##################################
 about:
@@ -31,10 +31,10 @@ sponsors:
   title: 'SPONSORS & PARTNERS'
   sponsors_list:
     - name: 'University of Oxford'
-      logo: 'images/sponsors/oxford.png'
+      logo: 'images/sponsors/gus_small.jpg'
 
     - name: 'University of Cambridge'
-      logo: 'images/sponsors/cambridge.png'
+      logo: 'images/sponsors/profile.jpg'
 
     - name: 'Microsoft'
       logo: 'images/sponsors/microsoft.png'
@@ -52,73 +52,35 @@ sponsors:
 funfacts:
   enable: true
   funfacts_list:
-    - name: 'CUPS PER DAY'
+    - name: ''
       image: 'images/icons/coffee.png'
-      count: '2'
+      count: ''
 
-    - name: 'SITES BUILT'
+    - name: 'Prize worth'
       image: 'images/icons/web-development.png'
-      count: '25'
+      count: '1000'
 
-    - name: 'USELESS ROW OF ICONS'
+    - name: 'Challenge Cases'
       image: 'images/icons/happy.png'
-      count: '1'
+      count: '5'
 
-    - name: 'USELESS ROW OF ICONS'
-      image: 'images/icons/happy.png'
-      count: '1'
 
-    - name: 'USELESS ROW OF ICONS'
-      image: 'images/icons/happy.png'
-      count: '1'
-
-    - name: 'USELESS ROW OF ICONS'
-      image: 'images/icons/happy.png'
-      count: '1'
-
-    - name: 'USELESS ROW OF ICONS'
-      image: 'images/icons/happy.png'
-      count: '1'
-
-    - name: 'USELESS ROW OF ICONS'
-      image: 'images/icons/happy.png'
-      count: '1'
-
-    - name: 'USELESS ROW OF ICONS'
-      image: 'images/icons/happy.png'
-      count: '1'
-
-    - name: 'USELESS ROW OF ICONS'
-      image: 'images/icons/happy.png'
-      count: '1'
-
-    - name: 'USELESS ROW OF ICONS'
-      image: 'images/icons/happy.png'
-      count: '1'
-
-    - name: 'USELESS ROW OF ICONS'
-      image: 'images/icons/happy.png'
-      count: '1'
-
-    - name: 'USELESS ROW OF ICONS'
-      image: 'images/icons/happy.png'
-      count: '1'
 
 ############################# portfolio ################################
-portfolio:
-  enable: true
-  title: 'MY WORK'
-  portfolio_list:
-    - name: Hugo
-      image: 'images/portfolio/hugo.png'
-      url: https://gohugo.io
-      description: Commodo non mollit commodo esse. Quis ad Lorem eiusmod ad velit Lorem sint elit. Anim magna duis et duis pariatur eiusmod laboris esse. Sit duis labore sit esse enim laborum nisi sunt magna sint labore tempor. Sit sit sint eu laboris officia et sunt consequat sit excepteur nostrud eu. Fugiat aliqua id et pariatur quis commodo aute aliqua et magna officia eu cillum mollit. Sint culpa excepteur culpa culpa sint est eu dolore culpa duis adipisicing proident.
+# portfolio:
+#   enable: true
+#   title: 'MY WORK'
+#   portfolio_list:
+#     - name: Hugo
+#       image: 'images/portfolio/hugo.png'
+#       url: https://gohugo.io
+#       description: Commodo non mollit commodo esse. Quis ad Lorem eiusmod ad velit Lorem sint elit. Anim magna duis et duis pariatur eiusmod laboris esse. Sit duis labore sit esse enim laborum nisi sunt magna sint labore tempor. Sit sit sint eu laboris officia et sunt consequat sit excepteur nostrud eu. Fugiat aliqua id et pariatur quis commodo aute aliqua et magna officia eu cillum mollit. Sint culpa excepteur culpa culpa sint est eu dolore culpa duis adipisicing proident.
 
-    - name: Hugo Themes
-      image: 'images/portfolio/hugothemes.png'
-      url: https://gohugo.io
-      description: Commodo non mollit commodo esse. Quis ad Lorem eiusmod ad velit Lorem sint elit. Anim magna duis et duis pariatur eiusmod laboris esse. Sit duis labore sit esse enim laborum nisi sunt magna sint labore tempor. Sit sit sint eu laboris officia et sunt consequat sit excepteur nostrud eu. Fugiat aliqua id et pariatur quis commodo aute aliqua et magna officia eu cillum mollit. Sint culpa excepteur culpa culpa sint est eu dolore culpa duis adipisicing proident.
+#     - name: Hugo Themes
+#       image: 'images/portfolio/hugothemes.png'
+#       url: https://gohugo.io
+#       description: Commodo non mollit commodo esse. Quis ad Lorem eiusmod ad velit Lorem sint elit. Anim magna duis et duis pariatur eiusmod laboris esse. Sit duis labore sit esse enim laborum nisi sunt magna sint labore tempor. Sit sit sint eu laboris officia et sunt consequat sit excepteur nostrud eu. Fugiat aliqua id et pariatur quis commodo aute aliqua et magna officia eu cillum mollit. Sint culpa excepteur culpa culpa sint est eu dolore culpa duis adipisicing proident.
 
-    - name: Just A Design
-      image: 'images/portfolio/design.png'
-      description: Commodo non mollit commodo esse. Quis ad Lorem eiusmod ad velit Lorem sint elit. Anim magna duis et duis pariatur eiusmod laboris esse. Sit duis labore sit esse enim laborum nisi sunt magna sint labore tempor. Sit sit sint eu laboris officia et sunt consequat sit excepteur nostrud eu. Fugiat aliqua id et pariatur quis commodo aute aliqua et magna officia eu cillum mollit. Sint culpa excepteur culpa culpa sint est eu dolore culpa duis adipisicing proident.
+#     - name: Just A Design
+#       image: 'images/portfolio/design.png'
+#       description: Commodo non mollit commodo esse. Quis ad Lorem eiusmod ad velit Lorem sint elit. Anim magna duis et duis pariatur eiusmod laboris esse. Sit duis labore sit esse enim laborum nisi sunt magna sint labore tempor. Sit sit sint eu laboris officia et sunt consequat sit excepteur nostrud eu. Fugiat aliqua id et pariatur quis commodo aute aliqua et magna officia eu cillum mollit. Sint culpa excepteur culpa culpa sint est eu dolore culpa duis adipisicing proident.
